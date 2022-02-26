@@ -2,6 +2,8 @@
 //ARE NOT COMPARABLE WITH ==
 //Slicing slice share mem sometimes
 //(sometimes please view func slicesShareMem2)
+//Slices en funciones permiten modificar
+//contenido pero no permiten modificar el tamanio por ello no toma el append
 package main
 
 import "fmt"
@@ -22,15 +24,16 @@ func main() {
 
 	slicesShareMem()
 	fmt.Println("3->", x, y)
+	//3-> [11 12 13 14] [11 12]
 
 	slicesShareMem2(x)
-	fmt.Println("6->", x, y)
-	//6-> [1111 12 1000 14] [1111 12] SOLO MOD EL ENVIADO POR PARAM
+	fmt.Println("7->", x, y)
+	//7-> [1111 12 2000 14] [1111 12]
 
 	//si no quieres que un slice comparta memoria usa el metodo copy
 	num := copy(e, x)
-	fmt.Println("7->", e, x, num)
-	//7-> [1111 12 1000 14] [1111 12 1000 14] 4
+	fmt.Println("8->", e, x, num)
+	//8-> [1111 12 2000 14] [1111 12 2000 14] 4
 }
 
 func slicesShareMem() {
@@ -51,7 +54,15 @@ func slicesShareMem2(x []int) {
 	y[0] = 1111
 	fmt.Println("4->", x, y)
 	//4-> [1111 12 13 14] [1111 12] ambos mod
-	y = append(y, 1000)
+	x = append(x, 1000)
 	fmt.Println("5->", x, y)
-	//5-> [1111 12 1000 14] [1111 12 1000] //ambos mod adiciono 1000 a ambos
+	//5-> [1111 12 13 14 1000] [1111 12] //solo lo adiciono a x porque tienen tamanios dif
+
+	y = append(y, 2000)
+	fmt.Println("6->", x, y)
+	//6-> [1111 12 13 14 1000] [1111 12 2000] //solo lo adiciono a y
+	//ojo pero cuando lo retorna modifica la pos 2 que tiene el 2000 de y en x
+	//no envia el append.
+	//7-> [1111 12 2000 14] [1111 12]
+
 }
