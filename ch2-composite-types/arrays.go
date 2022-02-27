@@ -1,8 +1,8 @@
 //ARRAYS
 //ARE COMPORABLE WITH ==
 //Arrays dont share mem
-//Arrays doesnt need to use pointers
-//because the function change the data
+//Arrays the function change the data
+//hence we dont need to use the pointer reference
 package main
 
 import "fmt"

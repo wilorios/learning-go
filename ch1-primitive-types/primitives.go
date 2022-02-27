@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strconv"
+)
 
 func main() {
 	var a int = 10
@@ -14,4 +17,8 @@ func main() {
 
 	fmt.Println(a, b, c, d, e, f)
 	//prints 10 30.2 40.2 40 true 200
+	g, err := strconv.Atoi("7")
+	if err == nil {
+		fmt.Println(g)
+	}
 }
