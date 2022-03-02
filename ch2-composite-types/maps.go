@@ -33,14 +33,21 @@ func main() {
 	fmt.Println("5->main ", teams)
 	//prints 5->main  map[America:[Ramos Graterol] Arsenal:[Henry Lumberg] Liverpool:[Lucho Salah] PSG:[Neymar Mbape]]
 	fmt.Println("6->main ", teams2)
-	//prints 6->main  map[America:[Ramos Graterol] Arsenal:[Henry Lumberg] Liverpool:[Lucho Salah] PSG:[Neymar Mbape]]	
+	//prints 6->main  map[America:[Ramos Graterol] Arsenal:[Henry Lumberg] Liverpool:[Lucho Salah] PSG:[Neymar Mbape]]
 
 	//this is th way you can delete a key of a map
 	delete(teams, "America")
+	howInitializeMap()
 }
 
 func addToMap(teams map[string][]string) {
 	teams["Liverpool"] = []string{"Lucho", "Salah"}
 	fmt.Println("4->in func ", teams)
 	//prints ->in func  map[America:[Ramos Graterol] Arsenal:[Henry Lumberg] Liverpool:[Lucho Salah] PSG:[Neymar Mbape]]
+}
+
+func howInitializeMap() {
+	m := map[string]int{}
+	m["key1"] = 2
+	fmt.Println(m)
 }
