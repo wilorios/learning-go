@@ -1,7 +1,7 @@
 package main
 
 import (
-	"concurrency/data"
+	"concurrencyFail/data"
 	"fmt"
 	"math/rand"
 	"sync"

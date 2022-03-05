@@ -26,7 +26,7 @@ func main() {
 }
 
 //goroutine 1
-//se marca el "chan<-" para indicar que el canal es receive-only
+//se marca el "chan<-" para indicar que el canal es receive-only (write)
 func generateIDS(wg *sync.WaitGroup, idsChan chan<- string, closedChan chan<- int) {
 
 	for i := 0; i < 10; i++ {
@@ -35,7 +35,7 @@ func generateIDS(wg *sync.WaitGroup, idsChan chan<- string, closedChan chan<- in
 		idsChan <- fmt.Sprintf("%d. %s ", i+1, id.String())
 	}
 
-	//OJO DEBEMOS CERRAR EL CANAL receive-only
+	//OJO DEBEMOS CERRAR EL CANAL receive-only (write)
 	close(idsChan)
 	closedChan <- 1
 
@@ -43,7 +43,7 @@ func generateIDS(wg *sync.WaitGroup, idsChan chan<- string, closedChan chan<- in
 }
 
 //goroutine 2
-//se marca el "chan<-" para indicar que el canal es receive-only
+//se marca el "chan<-" para indicar que el canal es receive-only (write)
 func generateFakeIDS(wg *sync.WaitGroup, fakeIdsChan chan<- string, closedChan chan<- int) {
 
 	for i := 0; i < 5; i++ {
@@ -52,7 +52,7 @@ func generateFakeIDS(wg *sync.WaitGroup, fakeIdsChan chan<- string, closedChan c
 		fakeIdsChan <- fmt.Sprintf("%d. %s ", i+1, id.String())
 	}
 
-	//OJO DEBEMOS CERRAR EL CANAL receive-only
+	//OJO DEBEMOS CERRAR EL CANAL receive-only (write)
 	close(fakeIdsChan)
 	closedChan <- 1
 
@@ -60,8 +60,8 @@ func generateFakeIDS(wg *sync.WaitGroup, fakeIdsChan chan<- string, closedChan c
 }
 
 //goroutine 3
-//se marca el "<-chan" para indicar que el canal es send-only
-//para el closedChan el chan es bidireccional porque extrae data y hace un close
+//se marca el "<-chan" para indicar que el canal es send-only (read)
+//para el closedChan el chan es bidireccional porque extrae data y hace un close (read and write)
 func logIDs(wg *sync.WaitGroup, idsChan <-chan string, fakeIdsChan <-chan string, closedChan chan int) {
 
 	closedCounter := 0
