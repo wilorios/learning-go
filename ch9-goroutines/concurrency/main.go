@@ -23,6 +23,7 @@ func main() {
 	fmt.Printf("%dms\n", duration)
 
 	//al ejecutarlo pareciese todo ok
+
 	//go run .\main.go
 	//Finished book: Retire Rich
 	//Finished book: El toque de midas
