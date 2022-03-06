@@ -1,3 +1,4 @@
+//THIS IS AN EXAMPLE THAT SOLVER THE PROBLEM OF "DATA RACE"
 package main
 
 import (
