@@ -24,7 +24,7 @@ func main() {
 
 	//al ejecutarlo pareciese todo ok
 
-	//go run .\main.go
+	//go run main.go
 	//Finished book: Retire Rich
 	//Finished book: El toque de midas
 	//Finished book: Padre Rico Padre Pobre
@@ -32,14 +32,13 @@ func main() {
 	//89ms
 
 	//pero al ejecutarlo con:
-	//go run --race .\main.go
+	//go run --race main.go
 	//Finished book: Secretos de una mente millonaria
 	//Finished book: Retire Rich
 	//Finished book: Padre Rico Padre Pobre
 	//WARNING: DATA RACE
 	//Read at 0x000000ff6910 by goroutine 8:
 	//main/data.findBook()
-	//D:/Perfiles/wrios/workspace-go/concurrency/data/data.go:23 +0x68
 	//Previous write at 0x000000ff6910 by goroutine 10:
 	//166ms
 	//Found 1 data race(s)
