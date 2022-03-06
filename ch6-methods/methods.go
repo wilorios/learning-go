@@ -17,6 +17,8 @@ func main() {
 	fmt.Println(output)
 }
 
+//the difference with the functions is "the receiver"
+//in that case the receiver is (p person)
 func (p person) string() string {
 	return fmt.Sprintf("%s %s, age %d", p.firstName, p.lastName, p.age)
 }
