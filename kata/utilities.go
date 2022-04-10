@@ -25,8 +25,9 @@ func main() {
 
 	//ORDENA STRING Y QUITA DUPLICADOS
 	fmt.Printf("Example 4: %s\n ", TwoToOne("zzzzaaaaxxxxbbb", "wwwwkkkmiugswascfgyvfdaaa"))
-
-	LongestConsec([]string{"zone", "abigail", "theta", "form", "libe", "zas"}, 2)
+	//prints abcdfgikmsuvwxyz
+	fmt.Printf(LongestConsec([]string{"zone", "abigail", "theta", "form", "libe", "zas"}, 2))
+	//prints abigailtheta
 
 	DigitalRoot(589)
 }
