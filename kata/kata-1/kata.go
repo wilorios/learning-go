@@ -6,7 +6,7 @@ import (
 	"strings"
 )
 
-func main1() {
+func main() {
 	s := "1 2 3"
 	r := HighAndLow(s)
 	fmt.Println(r)
