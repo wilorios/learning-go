@@ -23,6 +23,14 @@ func main() {
 	modifyOk(&p, &i)
 	fmt.Println("3->", p, i)
 	//print 3-> {Benji 39 dog} 2
+
+	first := 1
+	var second *int = &first
+
+	first++
+
+	fmt.Println("4->", first, *second)
+	fmt.Println("5->", first, second)
 }
 
 func modifyFails(p person, i int) {
